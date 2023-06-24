@@ -21,10 +21,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val currencyCodes = resources.getStringArray(R.array.currency_codes)
 
+        initVariables()
         initObservers()
         currencyRise()
+        initListener()
+
+    }
+
+    private fun initVariables() {
+        val currencyCodes = resources.getStringArray(R.array.currency_codes)
 
         val mArrayAdapter = ArrayAdapter<Any?>(
             this,
@@ -32,6 +38,11 @@ class MainActivity : AppCompatActivity() {
             currencyCodes
         )
 
+        binding.fromCurrencyTxt.adapter = mArrayAdapter
+        binding.toCurrencyTxt.adapter = mArrayAdapter
+    }
+
+    fun initListener() {
         binding.fromCurrencyTxt.onItemSelectedListener =
             object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
@@ -40,7 +51,6 @@ class MainActivity : AppCompatActivity() {
                         convertCurrency()
                     }
                 }
-
                 override fun onNothingSelected(parent: AdapterView<*>?) {}
             }
 
@@ -52,12 +62,8 @@ class MainActivity : AppCompatActivity() {
                         convertCurrency()
                     }
                 }
-
                 override fun onNothingSelected(parent: AdapterView<*>?) {}
             }
-
-        binding.fromCurrencyTxt.adapter = mArrayAdapter
-        binding.toCurrencyTxt.adapter = mArrayAdapter
 
         binding.etAmount.addTextChangedListener {
             if (binding.etAmount.text.toString()

@@ -1,4 +1,4 @@
-package com.example.currencyconverterappnew.domain.repository.impl
+package com.example.currencyconverterappnew.data.repositoryimpl
 
 import com.example.currencyconverterappnew.data.api.CurrencyApi
 import com.example.currencyconverterappnew.domain.repository.`interface`.MainRepository

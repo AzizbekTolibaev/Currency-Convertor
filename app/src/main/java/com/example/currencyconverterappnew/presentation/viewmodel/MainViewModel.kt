@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.currencyconverterappnew.domain.repository.impl.MainRepositoryImpl
+import com.example.currencyconverterappnew.data.repositoryimpl.MainRepositoryImpl
 import com.example.currencyconverterappnew.utils.ResultData
 import com.example.currencyconverterappnew.utils.realDate
 import kotlinx.coroutines.flow.launchIn
