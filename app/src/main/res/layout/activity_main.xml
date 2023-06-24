@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient_color"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tv_currency_converter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Currency Converter"
+        android:textColor="#1F2261"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Check live rates, set rate alerts, receive\nnotifications and more."
+        android:textColor="#808080"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_currency_converter"
+        app:layout_constraintStart_toStartOf="@id/tv_currency_converter"
+        app:layout_constraintEnd_toEndOf="@id/tv_currency_converter"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_currency"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="42dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        android:layout_marginHorizontal="22dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_info">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="20dp"
+            android:background="@color/white">
+
+            <View
+                android:id="@+id/swap_layout"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="16dp"
+                android:background="#E7E7EE"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <ImageView
+                android:id="@+id/btn_swap"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/ic_swap"
+                android:padding="10dp"
+                android:background="@drawable/bg_swap"
+                app:layout_constraintTop_toTopOf="@id/swap_layout"
+                app:layout_constraintBottom_toBottomOf="@id/swap_layout"
+                app:layout_constraintStart_toStartOf="@id/swap_layout"
+                app:layout_constraintEnd_toEndOf="@id/swap_layout"/>
+
+            <TextView
+                android:id="@+id/tv_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Amount"
+                android:textSize="14sp"
+                android:textColor="#808080"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <Spinner
+                android:id="@+id/fromCurrencyTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/currency_codes"
+                android:padding="6dp"
+                android:textColor="@color/black"
+                android:textSize="32sp"
+                style="@style/spinnerTheme"
+                android:translationZ="100dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="18dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_amount"
+                app:layout_constraintBottom_toTopOf="@id/btn_swap"/>
+
+            <EditText
+                android:id="@+id/et_amount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_edit_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="8dp"
+                android:inputType="number"
+                android:hint="0"
+                android:textSize="20sp"
+                android:textColor="#3C3C3C"
+                android:padding="8dp"
+                android:gravity="end"
+                app:layout_constraintTop_toTopOf="@id/fromCurrencyTxt"
+                app:layout_constraintBottom_toBottomOf="@id/fromCurrencyTxt"
+                app:layout_constraintStart_toEndOf="@id/fromCurrencyTxt"/>
+
+            <TextView
+                android:id="@+id/tv_converted_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Converted Amount"
+                android:textSize="14sp"
+                android:layout_marginTop="14dp"
+                android:textColor="#808080"
+                app:layout_constraintTop_toBottomOf="@id/btn_swap"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <Spinner
+                android:id="@+id/toCurrencyTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/currency_codes"
+                android:padding="6dp"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/white"
+                android:textSize="32sp"
+                android:translationZ="100dp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_converted_amount" />
+
+            <TextView
+                android:id="@+id/tv_result"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_edit_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="8dp"
+                android:textSize="20sp"
+                android:text="0"
+                android:singleLine="true"
+                android:textColor="#3C3C3C"
+                android:padding="8dp"
+                android:gravity="end"
+                app:layout_constraintTop_toTopOf="@id/toCurrencyTxt"
+                app:layout_constraintBottom_toBottomOf="@id/toCurrencyTxt"
+                app:layout_constraintStart_toEndOf="@id/fromCurrencyTxt"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tv_rate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Converted Amount"
+        android:textSize="14sp"
+        android:layout_marginTop="22dp"
+        android:textColor="#808080"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toBottomOf="@id/cv_currency"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_currency_rate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1 EUR = 1.0 EUR"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/tv_rate"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <ImageView
+        android:id="@+id/img_currency_rise"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_currency_up"
+        app:layout_constraintStart_toEndOf="@id/tv_currency_rate"
+        app:layout_constraintTop_toTopOf="@id/tv_currency_rate"
+        app:layout_constraintBottom_toBottomOf="@id/tv_currency_rate"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
