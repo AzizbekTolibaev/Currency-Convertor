@@ -1,5 +1,6 @@
 package com.example.currencyconverterappnew.presentation.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -78,7 +79,7 @@ class MainViewModel(
             when (it3) {
                 is ResultData.Loading -> {}
                 is ResultData.Success -> {
-                    _currencyRise.value = currency < it3.data!!.toInt()
+                    _currencyRise.value = currency > it3.data!!.toInt()
                 }
                 is ResultData.Message -> {}
                 is ResultData.Error -> {}

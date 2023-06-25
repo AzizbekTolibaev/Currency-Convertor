@@ -12,13 +12,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">#ECF2F8</item>
         <item name="android:windowLightStatusBar">true</item>
-        <item name="spinnerStyle">@style/spinnerTheme</item>
         <!-- Customize your theme here. -->
-    </style>
-
-    <style name="spinnerTheme" parent="Widget.AppCompat.Spinner">
-        <item name="android:textColor">@color/black</item>
-        <item name="backgroundColor">@color/white</item>
     </style>
 
 </resources>
