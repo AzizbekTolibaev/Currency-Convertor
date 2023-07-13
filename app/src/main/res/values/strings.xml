@@ -1,5 +1,10 @@
 <resources>
-    <string name="app_name">Currency Converter App New</string>
+    <string name="app_name">Currency Converter</string>
+    <string name="currency_converter">Currency Converter</string>
+    <string name="check_live_rates_set_rate_alerts_receive_nnotifications_and_more">Check live rates, set rate alerts, receive\nnotifications and more.</string>
+    <string name="converted_amount">Converted Amount</string>
+    <string name="amount">Amount</string>
+    <string name="_0">0</string>
     <string-array name="currency_codes">
         <item>EUR</item>
         <item>CAD</item>
